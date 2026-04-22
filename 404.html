@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <base href="/">
+    <title>404 - Page Not Found | Frontendure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-hero-content {
+            text-align: center;
+            margin: 0 auto;
+            align-items: center;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .error-title {
+            font-size: clamp(6rem, 15vw, 12rem);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-cta {
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="error-page">
+        <!-- Hero Section -->
+        <section class="hero glass-panel" style="width: 100%;">
+            <div class="hero-content error-hero-content">
+                <h1 class="glitch error-title" data-text="404">404</h1>
+                <p class="tagline">Page Not Found</p>
+                <div class="hero-text">
+                    <h2>Oops! Looks like you're lost.</h2>
+                    <p>The page you are looking for doesn't exist, has been moved, or is temporarily unavailable.</p>
+                </div>
+                <div class="cta-group error-cta">
+                    <a href="index.html" class="btn btn-primary" aria-label="Return to homepage">Return to Home</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="tech-sphere"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
