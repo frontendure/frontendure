@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Frontendure</title>
+    <meta name="description"
+        content="Find answers to common questions about working with Frontendure, our process, pricing, and the technologies we use to build your digital future.">
+    <meta name="keywords" content="frequently asked questions, web development faq, agency process, frontendure help">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .faq-page {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            max-width: 800px;
+        }
+
+        .faq-list {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        details {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+
+        details[open] {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.05);
+        }
+
+        summary {
+            padding: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            list-style: none;
+            /* remove default arrow */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::before {
+            content: '+';
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            order: 2;
+            /* places icon on the right */
+            transition: transform var(--transition);
+        }
+
+        details[open] summary::before {
+            content: '-';
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: -0.5rem;
+            padding-top: 1.5rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 480px) {
+            .faq-page {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="faq-page container">
+        <h1 class="section-title">Frequently Asked Questions</h1>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: 2rem;">Common queries about working with
+            Frontendure.</p>
+
+        <div class="faq-list">
+            <details>
+                <summary>How do I get started with a project?</summary>
+                <div class="faq-answer">
+                    <p>Simply head over to our Contact page and fill out the form, or reach out to us directly via
+                        email. We'll schedule a discovery call to discuss your vision, requirements, and goals to ensure
+                        we're the right fit for your needs.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Do you offer custom designs or use templates?</summary>
+                <div class="faq-answer">
+                    <p>We pride ourselves on creating 100% custom designs tailored to your brand identity. We don't use
+                        generic templates; every pixel is crafted specifically for your business to ensure you stand out
+                        in your industry.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>How long does a website take?</summary>
+                <div class="faq-answer">
+                    <p>We deliver your website as quickly as possible — the timeline depends entirely on the scale of
+                        your project. A simple landing page can be ready in days, while a full-featured web application
+                        may take a few weeks. Speed is always a priority without compromising quality.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>What is the cost?</summary>
+                <div class="faq-answer">
+                    <p>Frontendure is the platform where websites are created most affordably. We offer competitive,
+                        transparent pricing tailored to your needs — whether it's a sleek landing page or a full web
+                        platform. Reach out for a custom quote.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>What technologies do you use for development?</summary>
+                <div class="faq-answer">
+                    <p>We use a modern stack including HTML5, CSS3 (with advanced techniques like Glassmorphism), and
+                        JavaScript. Depending on project needs, we also leverage frameworks like React or Vite to build
+                        high-performance, scalable applications.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Is SEO included in the development process?</summary>
+                <div class="faq-answer">
+                    <p>Yes! We believe a great website must be discoverable. Every site we build follows SEO best
+                        practices, from semantic HTML structure to optimized meta tags and lightning-fast loading speeds
+                        to help you rank higher.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Will my website work on mobile devices?</summary>
+                <div class="faq-answer">
+                    <p>Absolutely. In today's digital landscape, mobile-first design is a must. Every website we build
+                        is fully responsive, ensuring a seamless and beautiful experience across all screen sizes, from
+                        smartphones to large desktops.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Can you update or redesign my existing website?</summary>
+                <div class="faq-answer">
+                    <p>Definitely. We can take your current site and give it a modern, tech-driven makeover, improving
+                        both its visual appeal and its technical performance to meet today's web standards and user
+                        expectations.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Do you provide maintenance?</summary>
+                <div class="faq-answer">
+                    <p>Yes, absolutely! We provide ongoing maintenance and are ready to assist with any updates,
+                        improvements, security patches, or new feature additions as required. We're with you long after
+                        launch — your growth is our commitment.</p>
+                </div>
+            </details>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

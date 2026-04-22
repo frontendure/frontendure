@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Frontendure</title>
+    <meta name="description"
+        content="Learn about Frontendure, our mission, vision, and the expert team behind our modern web development solutions. Meet the founders dedicated to your business success.">
+    <meta name="keywords" content="about frontendure, web development team, founders, business story, tech vision">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-section {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .text-block {
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .text-block h2 {
+            margin-bottom: 1.25rem;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            color: #fff;
+        }
+
+        .text-block p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Team Grid ─────────────────────────────── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: linear-gradient(145deg, rgba(30, 30, 48, 0.95), rgba(18, 18, 32, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.04), rgba(112, 0, 255, 0.04));
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.12), 0 8px 32px rgba(112, 0, 255, 0.1);
+        }
+
+        .team-member:hover::before {
+            opacity: 1;
+        }
+
+        /* ── Round Image Wrapper ────────────────────── */
+        .team-img-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.8rem;
+        }
+
+        /* Spinning gradient ring */
+        .team-img-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #00f0ff, #7000ff, #00f0ff);
+            animation: spin-ring 6s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes spin-ring {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Inner background to "cut out" the ring into a border */
+        .team-img-ring-inner {
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            z-index: 1;
+        }
+
+        /* Actual <img> when user adds a photo */
+        .team-member-img {
+            position: absolute;
+            inset: 6px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            border-radius: 50%;
+            z-index: 2;
+            object-fit: cover;
+        }
+
+        /* Placeholder shown until a real photo is added */
+        .team-img-placeholder {
+            position: absolute;
+            inset: 6px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2a2a48, #12121e);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .team-img-placeholder:hover {
+            background: radial-gradient(circle at 30% 30%, #303058, #191932);
+        }
+
+        .team-img-placeholder svg {
+            width: 34px;
+            height: 34px;
+            opacity: 0.55;
+            margin-bottom: 5px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .team-img-placeholder:hover svg {
+            opacity: 0.9;
+            transform: scale(1.12);
+        }
+
+        .team-img-placeholder span {
+            font-size: 0.62rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Ambient glow behind each avatar */
+        .team-img-glow {
+            position: absolute;
+            inset: -16px;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            animation: glow-pulse 3.2s ease-in-out infinite;
+        }
+
+        .team-member:nth-child(1) .team-img-glow {
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.22) 0%, transparent 68%);
+        }
+
+        .team-member:nth-child(2) .team-img-glow {
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.25) 0%, transparent 68%);
+        }
+
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                opacity: 0.55;
+                transform: scale(0.97);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.06);
+            }
+        }
+
+        /* ── Card Text ──────────────────────────────── */
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.35rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .team-member .role {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+            background: linear-gradient(90deg, #00f0ff, #7000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .team-divider {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #00f0ff, #7000ff);
+            border-radius: 2px;
+            margin: 0.9rem auto 1rem;
+        }
+
+        .team-member p {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── Responsive ─────────────────────────────── */
+        @media (max-width: 480px) {
+            .about-section {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-img-wrapper {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="about-page">
+        <section class="about-section container">
+            <div class="text-block">
+                <h1 class="section-title">Who We Are</h1>
+                <p>Welcome to <strong>Frontendure</strong>, where your business goes live.</p>
+                <p>We are a dedicated team of web technology enthusiasts passionate about building exceptional digital
+                    experiences. From initial concept to deployment, our goal is to empower businesses to thrive in the
+                    modern web ecosystem.</p>
+            </div>
+
+            <div class="text-block">
+                <h2>Our Mission &amp; Vision</h2>
+                <p><strong>Mission:</strong> To craft modern, highly functional, and visually stunning websites that
+                    give our clients a competitive edge.</p>
+                <p><strong>Vision:</strong> A web where every business, regardless of size, has access to
+                    enterprise-grade frontend architecture and design.</p>
+            </div>
+
+            <div class="text-block">
+                <h2>Our Approach &amp; Philosophy</h2>
+                <p>We believe in "techy" and dynamic designs that are supported by clean, robust code. Our philosophy
+                    centers on user experience, lightning-fast performance, and aesthetics that captivate users
+                    immediately.</p>
+            </div>
+
+            <div class="team-section" style="margin-top: 5rem;">
+                <h2 class="section-title">Meet the Founders</h2>
+                <div class="team-grid">
+
+                    <!-- ── Team Member 1 ── -->
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <div class="team-img-glow"></div>
+                            <div class="team-img-ring"></div>
+                            <div class="team-img-ring-inner"></div>
+                            <!--
+                                To add your photo, replace the div below with:
+                                <img src="images/your-photo.jpg" alt="Your Name" class="team-member-img">
+                            -->
+                            <img src="images/" alt="Your Name" class="team-member-img">
+                        </div>
+                        <h3>Ajmal Noushad</h3>
+                        <span class="role">Co-Founder &amp; Developer</span>
+                        <div class="team-divider"></div>
+                        <p>[Short about text for Developer 1. Describe primary skills, background, and passion for
+                            creating web applications.]</p>
+                    </div>
+
+                    <!-- ── Team Member 2 ── -->
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <div class="team-img-glow"></div>
+                            <div class="team-img-ring"></div>
+                            <div class="team-img-ring-inner"></div>
+                            <!--
+                                To add your photo, replace the div below with:
+                                <img src="images/your-photo.jpg" alt="Your Name" class="team-member-img">
+                            -->
+                            <img src="images/vignesh.png" alt="Your Name" class="team-member-img">
+                        </div>
+                        <h3>Vignesh V Palazhi</h3>
+                        <span class="role">Co-Founder &amp; Developer</span>
+                        <div class="team-divider"></div>
+                        <p>[Short about text for Developer 2. Describe primary skills, background, and what drives their
+                            development work.]</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
